@@ -31,16 +31,6 @@ class Tasks extends MY_Model {
 		return $converted;
 	}
 
-    // return -1, 0, or 1 of $a's category name is earlier, equal to, or later than $b's
-    function orderByCategory($a, $b) {
-	if ($a->group < $b->group)
-		return -1;
-	elseif ($a->group > $b->group)
-		return 1;
-	else
-		return 0;
-    }
-
     // provide form validation rules
     public function rules() {
         $config = array(
@@ -52,3 +42,13 @@ class Tasks extends MY_Model {
         return $config;
     }
 }
+
+// return -1, 0, or 1 of $a's category name is earlier, equal to, or later than $b's
+    function orderByCategory($a, $b) {
+	if ($a->group < $b->group)
+		return -1;
+	elseif ($a->group > $b->group)
+		return 1;
+	else
+		return 0;
+    }
