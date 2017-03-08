@@ -25,6 +25,9 @@ class Application extends CI_Controller
             $this->data = array ();
             $this->data['pagetitle'] = 'TODO List Manager';
             $this->data['ci_version'] = (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>'.CI_VERSION.'</strong>' : '';
+    
+            $this->data['alerts'] = '';
+            $this->error_free = TRUE;
     }
 
     /**
@@ -49,4 +52,11 @@ class Application extends CI_Controller
         $this->parser->parse($template, $this->data);
     }
 
+    // Add an alert to the rendered page
+    function alert($message = '', $context = 'success')
+    {
+        $parms = ['message' => $message, 'context' => $context];
+        $this->data['alerts'] .= $this->parser->parse('_alert', $parms, true);
+        $this->error_free = FALSE;
+    }
 }

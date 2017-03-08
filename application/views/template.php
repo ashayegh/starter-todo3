@@ -21,6 +21,7 @@
             </div>           
             <div id="content">
                 <h1>{pagetitle}</h1>
+                {alerts}
                 {content}
             </div>
             <div id="footer" class="span12">
